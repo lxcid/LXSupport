@@ -18,6 +18,7 @@
 
 // http://en.wikipedia.org/wiki/Web_colors#Hex_triplet
 + (NSRegularExpression *)hexTripletRegularExpression;
+// http://stackoverflow.com/questions/1560081/how-can-i-create-a-uicolor-from-a-hex-string
 + (UIColor *)colorWithHexTriplet:(unsigned int)theHexTriplet alpha:(CGFloat)theAlpha;
 + (UIColor *)colorWithHexTriplet:(unsigned int)theHexTriplet;
 + (UIColor *)colorWithHexTripletInString:(NSString *)theHexTripletInString alpha:(CGFloat)theAlpha;
