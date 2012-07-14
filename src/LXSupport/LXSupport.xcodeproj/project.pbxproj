@@ -20,6 +20,10 @@
 		ABEF2ED915B19B33003FA8E7 /* NSDictionary+LXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = ABEF2ED715B19B33003FA8E7 /* NSDictionary+LXSupport.h */; };
 		ABEF2EDA15B19B33003FA8E7 /* NSDictionary+LXSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEF2ED815B19B33003FA8E7 /* NSDictionary+LXSupport.m */; };
 		ABEF2EDD15B19B75003FA8E7 /* NSDictionary+LXSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEF2EDC15B19B75003FA8E7 /* NSDictionary+LXSupportTests.m */; };
+		ABEF2EE015B19C5C003FA8E7 /* NSArray+LXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = ABEF2EDE15B19C5C003FA8E7 /* NSArray+LXSupport.h */; };
+		ABEF2EE115B19C5C003FA8E7 /* NSArray+LXSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEF2EDF15B19C5C003FA8E7 /* NSArray+LXSupport.m */; };
+		ABEF2EE715B19D96003FA8E7 /* LXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = ABEF2EE515B19D96003FA8E7 /* LXSupport.h */; };
+		ABEF2EEB15B19DFA003FA8E7 /* NSArray+LXSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEF2EEA15B19DFA003FA8E7 /* NSArray+LXSupportTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,11 @@
 		ABEF2ED815B19B33003FA8E7 /* NSDictionary+LXSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LXSupport.m"; sourceTree = "<group>"; };
 		ABEF2EDB15B19B75003FA8E7 /* NSDictionary+LXSupportTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LXSupportTests.h"; sourceTree = "<group>"; };
 		ABEF2EDC15B19B75003FA8E7 /* NSDictionary+LXSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LXSupportTests.m"; sourceTree = "<group>"; };
+		ABEF2EDE15B19C5C003FA8E7 /* NSArray+LXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LXSupport.h"; sourceTree = "<group>"; };
+		ABEF2EDF15B19C5C003FA8E7 /* NSArray+LXSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LXSupport.m"; sourceTree = "<group>"; };
+		ABEF2EE515B19D96003FA8E7 /* LXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSupport.h; sourceTree = "<group>"; };
+		ABEF2EE915B19DFA003FA8E7 /* NSArray+LXSupportTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+LXSupportTests.h"; sourceTree = "<group>"; };
+		ABEF2EEA15B19DFA003FA8E7 /* NSArray+LXSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+LXSupportTests.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +118,7 @@
 			children = (
 				AB2A7A8615B18A8F008F7B4B /* Categories */,
 				AB2A7A6215B18A66008F7B4B /* Supporting Files */,
+				ABEF2EE515B19D96003FA8E7 /* LXSupport.h */,
 			);
 			path = LXSupport;
 			sourceTree = "<group>";
@@ -146,6 +156,8 @@
 				AB2A7A9315B18B00008F7B4B /* UIColor+LXSupport.m */,
 				ABEF2ED715B19B33003FA8E7 /* NSDictionary+LXSupport.h */,
 				ABEF2ED815B19B33003FA8E7 /* NSDictionary+LXSupport.m */,
+				ABEF2EDE15B19C5C003FA8E7 /* NSArray+LXSupport.h */,
+				ABEF2EDF15B19C5C003FA8E7 /* NSArray+LXSupport.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -157,6 +169,8 @@
 				AB2A7A9A15B18DA6008F7B4B /* UIColor+LXSupportTests.m */,
 				ABEF2EDB15B19B75003FA8E7 /* NSDictionary+LXSupportTests.h */,
 				ABEF2EDC15B19B75003FA8E7 /* NSDictionary+LXSupportTests.m */,
+				ABEF2EE915B19DFA003FA8E7 /* NSArray+LXSupportTests.h */,
+				ABEF2EEA15B19DFA003FA8E7 /* NSArray+LXSupportTests.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -170,6 +184,8 @@
 			files = (
 				AB2A7A9415B18B00008F7B4B /* UIColor+LXSupport.h in Headers */,
 				ABEF2ED915B19B33003FA8E7 /* NSDictionary+LXSupport.h in Headers */,
+				ABEF2EE015B19C5C003FA8E7 /* NSArray+LXSupport.h in Headers */,
+				ABEF2EE715B19D96003FA8E7 /* LXSupport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +290,7 @@
 			files = (
 				AB2A7A9515B18B00008F7B4B /* UIColor+LXSupport.m in Sources */,
 				ABEF2EDA15B19B33003FA8E7 /* NSDictionary+LXSupport.m in Sources */,
+				ABEF2EE115B19C5C003FA8E7 /* NSArray+LXSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -283,6 +300,7 @@
 			files = (
 				AB2A7A9B15B18DA6008F7B4B /* UIColor+LXSupportTests.m in Sources */,
 				ABEF2EDD15B19B75003FA8E7 /* NSDictionary+LXSupportTests.m in Sources */,
+				ABEF2EEB15B19DFA003FA8E7 /* NSArray+LXSupportTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
