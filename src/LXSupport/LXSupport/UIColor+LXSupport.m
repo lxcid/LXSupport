@@ -48,7 +48,7 @@
         NSUInteger theIndex = [theHexTripletInString hasPrefix:@"#"] ? 1 : 0;
         NSScanner *theScanner = [NSScanner scannerWithString:[theHexTripletInString substringFromIndex:theIndex]];
         if ([theScanner scanHexInt:&theHexTriplet]) {
-            return [[self colorWithHexTriplet:theHexTriplet] colorWithAlphaComponent:theAlpha];
+            return [self colorWithHexTriplet:theHexTriplet alpha:theAlpha];
         } else {
             return nil;
         }
