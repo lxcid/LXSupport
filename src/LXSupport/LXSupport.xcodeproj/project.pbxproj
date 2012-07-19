@@ -17,6 +17,8 @@
 		AB2A7A9715B18B14008F7B4B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2A7A9615B18B14008F7B4B /* UIKit.framework */; };
 		AB2A7A9B15B18DA6008F7B4B /* UIColor+LXSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2A7A9A15B18DA6008F7B4B /* UIColor+LXSupportTests.m */; };
 		AB2A7A9C15B18EFB008F7B4B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2A7A9615B18B14008F7B4B /* UIKit.framework */; };
+		AB82414A15B7DFE30095F844 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB82414915B7DFE30095F844 /* CoreGraphics.framework */; };
+		AB82414E15B7E0BD0095F844 /* CGGeometry+LXSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB82414D15B7E0BD0095F844 /* CGGeometry+LXSupportTests.m */; };
 		ABEF2ED915B19B33003FA8E7 /* NSDictionary+LXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = ABEF2ED715B19B33003FA8E7 /* NSDictionary+LXSupport.h */; };
 		ABEF2EDA15B19B33003FA8E7 /* NSDictionary+LXSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEF2ED815B19B33003FA8E7 /* NSDictionary+LXSupport.m */; };
 		ABEF2EDD15B19B75003FA8E7 /* NSDictionary+LXSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABEF2EDC15B19B75003FA8E7 /* NSDictionary+LXSupportTests.m */; };
@@ -49,6 +51,10 @@
 		AB2A7A9615B18B14008F7B4B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AB2A7A9915B18DA6008F7B4B /* UIColor+LXSupportTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LXSupportTests.h"; sourceTree = "<group>"; };
 		AB2A7A9A15B18DA6008F7B4B /* UIColor+LXSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LXSupportTests.m"; sourceTree = "<group>"; };
+		AB82414715B7DF6C0095F844 /* CGGeometry+LXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+LXSupport.h"; sourceTree = "<group>"; };
+		AB82414915B7DFE30095F844 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		AB82414C15B7E0BD0095F844 /* CGGeometry+LXSupportTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+LXSupportTests.h"; sourceTree = "<group>"; };
+		AB82414D15B7E0BD0095F844 /* CGGeometry+LXSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+LXSupportTests.m"; sourceTree = "<group>"; };
 		ABEF2ED715B19B33003FA8E7 /* NSDictionary+LXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LXSupport.h"; sourceTree = "<group>"; };
 		ABEF2ED815B19B33003FA8E7 /* NSDictionary+LXSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+LXSupport.m"; sourceTree = "<group>"; };
 		ABEF2EDB15B19B75003FA8E7 /* NSDictionary+LXSupportTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+LXSupportTests.h"; sourceTree = "<group>"; };
@@ -65,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB82414A15B7DFE30095F844 /* CoreGraphics.framework in Frameworks */,
 				AB2A7A9715B18B14008F7B4B /* UIKit.framework in Frameworks */,
 				AB2A7A6015B18A66008F7B4B /* Foundation.framework in Frameworks */,
 			);
@@ -106,6 +113,7 @@
 		AB2A7A5E15B18A66008F7B4B /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AB82414915B7DFE30095F844 /* CoreGraphics.framework */,
 				AB2A7A9615B18B14008F7B4B /* UIKit.framework */,
 				AB2A7A5F15B18A66008F7B4B /* Foundation.framework */,
 				AB2A7A6D15B18A66008F7B4B /* SenTestingKit.framework */,
@@ -116,6 +124,7 @@
 		AB2A7A6115B18A66008F7B4B /* LXSupport */ = {
 			isa = PBXGroup;
 			children = (
+				AB82414515B7DF320095F844 /* Extensions */,
 				AB2A7A8615B18A8F008F7B4B /* Categories */,
 				AB2A7A6215B18A66008F7B4B /* Supporting Files */,
 				ABEF2EE515B19D96003FA8E7 /* LXSupport.h */,
@@ -134,6 +143,7 @@
 		AB2A7A7515B18A66008F7B4B /* LXSupportTests */ = {
 			isa = PBXGroup;
 			children = (
+				AB82414B15B7E0A10095F844 /* Extensions */,
 				AB2A7A9815B18D8B008F7B4B /* Categories */,
 				AB2A7A7615B18A66008F7B4B /* Supporting Files */,
 			);
@@ -173,6 +183,23 @@
 				ABEF2EEA15B19DFA003FA8E7 /* NSArray+LXSupportTests.m */,
 			);
 			name = Categories;
+			sourceTree = "<group>";
+		};
+		AB82414515B7DF320095F844 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AB82414715B7DF6C0095F844 /* CGGeometry+LXSupport.h */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		AB82414B15B7E0A10095F844 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AB82414C15B7E0BD0095F844 /* CGGeometry+LXSupportTests.h */,
+				AB82414D15B7E0BD0095F844 /* CGGeometry+LXSupportTests.m */,
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +328,7 @@
 				AB2A7A9B15B18DA6008F7B4B /* UIColor+LXSupportTests.m in Sources */,
 				ABEF2EDD15B19B75003FA8E7 /* NSDictionary+LXSupportTests.m in Sources */,
 				ABEF2EEB15B19DFA003FA8E7 /* NSArray+LXSupportTests.m in Sources */,
+				AB82414E15B7E0BD0095F844 /* CGGeometry+LXSupportTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
