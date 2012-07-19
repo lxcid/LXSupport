@@ -17,4 +17,10 @@ LXS_CGSizeAdd(CGSize theSize1, CGSize theSize2)
     return CGSizeMake(theSize1.width + theSize2.width, theSize1.height + theSize2.height);
 }
 
+CG_INLINE CGRect
+LXS_CGRectFromCGPointAndCGSize(CGPoint theOrigin, CGSize theSize)
+{
+    return CGRectMake(theOrigin.x, theOrigin.y, theSize.width, theSize.height);
+}
+
 #endif /* CGGEOMETRY_LXSUPPORT_H_ */

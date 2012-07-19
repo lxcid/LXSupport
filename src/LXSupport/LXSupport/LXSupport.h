@@ -6,6 +6,12 @@
 //  Copyright (c) 2012 d--buzz. All rights reserved.
 //
 
-#import "UIColor+LXSupport.h"
+// Core Foundation
 #import "NSDictionary+LXSupport.h"
 #import "NSArray+LXSupport.h"
+
+// Core Graphics
+#import "CGGeometry+LXSupport.h"
+
+// UIKit
+#import "UIColor+LXSupport.h"
