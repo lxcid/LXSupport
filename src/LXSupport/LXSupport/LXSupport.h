@@ -11,6 +11,7 @@
 #import "NSArray+LXSupport.h"
 
 // Core Graphics
+#import "Math+LXSupport.h"
 #import "CGGeometry+LXSupport.h"
 
 // UIKit
