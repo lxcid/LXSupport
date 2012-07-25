@@ -70,7 +70,7 @@
     
     // Start with a mask that's entirely transparent
     CGContextSetFillColorWithColor(theMaskContext, [UIColor blackColor].CGColor);
-    CGContextFillRect(theMaskContext, CGRectMake(0, 0, theImageSize.width, theImageSize.height));
+    CGContextFillRect(theMaskContext, CGRectMake(0.0f, 0.0f, theImageSize.width, theImageSize.height));
     
     // Make the inner part (within the border) opaque
     CGContextSetFillColorWithColor(theMaskContext, [UIColor whiteColor].CGColor);
@@ -133,6 +133,32 @@
     UIImage *theTransparentBorderImage = [theBorderImage imageWithTransparentBorderOfSize:theBorderSize];
     
     return theTransparentBorderImage;
+}
+
+- (UIImage *)imageWithBorderOfSize:(NSUInteger)theBorderSize color:(UIColor *)theBorderColor {
+    UIImage *theImage = [self imageWithTransparentBorderOfSize:theBorderSize];
+    
+    // Build context
+    CGContextRef theOffscreenContext = CGBitmapContextCreate(NULL,
+                                                             (size_t)theImage.size.width,
+                                                             (size_t)theImage.size.height,
+                                                             CGImageGetBitsPerComponent(theImage.CGImage),
+                                                             0,
+                                                             CGImageGetColorSpace(theImage.CGImage),
+                                                             CGImageGetBitmapInfo(theImage.CGImage));
+    
+    // Draw
+    CGContextSetFillColorWithColor(theOffscreenContext, theBorderColor.CGColor);
+    CGContextFillRect(theOffscreenContext, CGRectMake(0, 0, theImage.size.width, theImage.size.height));
+    CGContextDrawImage(theOffscreenContext, CGRectMake(0, 0, theImage.size.width, theImage.size.height), theImage.CGImage);
+    CGImageRef theBorderImageRef = CGBitmapContextCreateImage(theOffscreenContext);
+    UIImage *theBorderImage = [UIImage imageWithCGImage:theBorderImageRef];
+    
+    // Clean up
+    CGContextRelease(theOffscreenContext);
+    CGImageRelease(theBorderImageRef);
+    
+    return theBorderImage;
 }
 
 @end

@@ -17,5 +17,6 @@
 - (UIImage *)borderMaskImageOfBorderSize:(NSUInteger)theBorderSize forImageSize:(CGSize)theImageSize;
 - (UIImage *)imageWithTransparentBorderOfSize:(NSUInteger)theBorderSize;
 - (UIImage *)imageWithAdditionalTransparentBorderOfSize:(NSUInteger)theBorderSize;
+- (UIImage *)imageWithBorderOfSize:(NSUInteger)theBorderSize color:(UIColor *)theBorderColor;
 
 @end
