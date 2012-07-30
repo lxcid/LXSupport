@@ -17,6 +17,8 @@
 		AB2A7A9715B18B14008F7B4B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2A7A9615B18B14008F7B4B /* UIKit.framework */; };
 		AB2A7A9B15B18DA6008F7B4B /* UIColor+LXSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB2A7A9A15B18DA6008F7B4B /* UIColor+LXSupportTests.m */; };
 		AB2A7A9C15B18EFB008F7B4B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2A7A9615B18B14008F7B4B /* UIKit.framework */; };
+		AB51E62A15C6935E00D7E063 /* NSDate+LXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = AB51E62815C6935E00D7E063 /* NSDate+LXSupport.h */; };
+		AB51E62B15C6935E00D7E063 /* NSDate+LXSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = AB51E62915C6935E00D7E063 /* NSDate+LXSupport.m */; };
 		AB6BC19815C05ACF00C50994 /* UIImage+LXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = AB6BC19615C05ACF00C50994 /* UIImage+LXSupport.h */; };
 		AB6BC19915C05ACF00C50994 /* UIImage+LXSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = AB6BC19715C05ACF00C50994 /* UIImage+LXSupport.m */; };
 		AB74237315C066FB00BC5474 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB82414915B7DFE30095F844 /* CoreGraphics.framework */; };
@@ -58,6 +60,8 @@
 		AB2A7A9615B18B14008F7B4B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		AB2A7A9915B18DA6008F7B4B /* UIColor+LXSupportTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LXSupportTests.h"; sourceTree = "<group>"; };
 		AB2A7A9A15B18DA6008F7B4B /* UIColor+LXSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LXSupportTests.m"; sourceTree = "<group>"; };
+		AB51E62815C6935E00D7E063 /* NSDate+LXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+LXSupport.h"; sourceTree = "<group>"; };
+		AB51E62915C6935E00D7E063 /* NSDate+LXSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+LXSupport.m"; sourceTree = "<group>"; };
 		AB6BC19615C05ACF00C50994 /* UIImage+LXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+LXSupport.h"; sourceTree = "<group>"; };
 		AB6BC19715C05ACF00C50994 /* UIImage+LXSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+LXSupport.m"; sourceTree = "<group>"; };
 		AB82414715B7DF6C0095F844 /* CGGeometry+LXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+LXSupport.h"; sourceTree = "<group>"; };
@@ -187,6 +191,8 @@
 				AB6BC19715C05ACF00C50994 /* UIImage+LXSupport.m */,
 				ABC4F33E15C6454C002DE497 /* NSString+LXSupport.h */,
 				ABC4F33F15C6454C002DE497 /* NSString+LXSupport.m */,
+				AB51E62815C6935E00D7E063 /* NSDate+LXSupport.h */,
+				AB51E62915C6935E00D7E063 /* NSDate+LXSupport.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -238,6 +244,7 @@
 				ABD1B0CA15BA9019008F2641 /* Math+LXSupport.h in Headers */,
 				AB6BC19815C05ACF00C50994 /* UIImage+LXSupport.h in Headers */,
 				ABC4F34015C6454C002DE497 /* NSString+LXSupport.h in Headers */,
+				AB51E62A15C6935E00D7E063 /* NSDate+LXSupport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +352,7 @@
 				ABEF2EE115B19C5C003FA8E7 /* NSArray+LXSupport.m in Sources */,
 				AB6BC19915C05ACF00C50994 /* UIImage+LXSupport.m in Sources */,
 				ABC4F34115C6454C002DE497 /* NSString+LXSupport.m in Sources */,
+				AB51E62B15C6935E00D7E063 /* NSDate+LXSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,6 +10,7 @@
 #import "NSDictionary+LXSupport.h"
 #import "NSArray+LXSupport.h"
 #import "NSString+LXSupport.h"
+#import "NSDate+LXSupport.h"
 
 // Core Graphics
 #import "Math+LXSupport.h"
