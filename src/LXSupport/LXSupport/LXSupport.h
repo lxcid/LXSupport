@@ -9,6 +9,7 @@
 // Core Foundation
 #import "NSDictionary+LXSupport.h"
 #import "NSArray+LXSupport.h"
+#import "NSString+LXSupport.h"
 
 // Core Graphics
 #import "Math+LXSupport.h"
