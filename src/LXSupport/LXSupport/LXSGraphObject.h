@@ -37,10 +37,10 @@
 @interface LXSGraphObject : NSMutableDictionary<LXSGraphObject>
 
 // Used to create a graph object for, usually for use in posting a new graph object or action.
-+ (NSMutableDictionary<LXSGraphObject> *)graphObject __attribute((ns_returns_retained));
++ (NSMutableDictionary<LXSGraphObject> *)graphObject;
 
 // Used to wrap an existing dictionary with a `LXSGraphObject` facade.
-+ (NSMutableDictionary<LXSGraphObject> *)graphObjectWrappingDictionary:(NSDictionary *)theJSONDictionary __attribute((ns_returns_retained));
++ (NSMutableDictionary<LXSGraphObject> *)graphObjectWrappingDictionary:(NSDictionary *)theJSONDictionary;
 
 // Used to compare two `LXSGraphObject` to determine if represent the same object.
 + (BOOL)isGraphObjectID:(id<LXSGraphObject>)theObject sameAs:(id<LXSGraphObject>)theAnotherObject;

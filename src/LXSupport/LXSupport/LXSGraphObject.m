@@ -29,7 +29,7 @@ typedef enum LXSSelectorInferredImplType : NSUInteger {
 
 @interface LXSGraphObject ()
 
-+ (id)graphObjectWrappingObject:(id)theOriginalObject __attribute((ns_returns_retained));
++ (id)graphObjectWrappingObject:(id)theOriginalObject;
 + (LXSSelectorInferredImplType)inferredImplTypeForSelector:(SEL)theSelector;
 + (BOOL)isProtocolImplementationInferable:(Protocol *)theProtocol checkLXSGraphObjectAdoption:(BOOL)theCheckAdoption;
 
@@ -63,11 +63,11 @@ typedef enum LXSSelectorInferredImplType : NSUInteger {
 
 #pragma mark - Public class methods
 
-+ (NSMutableDictionary<LXSGraphObject> *)graphObject __attribute((ns_returns_retained)) {
++ (NSMutableDictionary<LXSGraphObject> *)graphObject {
     return [LXSGraphObject graphObjectWrappingDictionary:[NSMutableDictionary dictionary]];
 }
 
-+ (NSMutableDictionary<LXSGraphObject> *)graphObjectWrappingDictionary:(NSDictionary *)theJSONDictionary __attribute((ns_returns_retained)) {
++ (NSMutableDictionary<LXSGraphObject> *)graphObjectWrappingDictionary:(NSDictionary *)theJSONDictionary {
     return [LXSGraphObject graphObjectWrappingObject:theJSONDictionary];
 }
 
@@ -199,7 +199,7 @@ typedef enum LXSSelectorInferredImplType : NSUInteger {
 
 #pragma mark - Private class methods
 
-+ (id)graphObjectWrappingObject:(id)theOriginalObject __attribute((ns_returns_retained)) {
++ (id)graphObjectWrappingObject:(id)theOriginalObject {
     // Non-array and Non-dictionary case, return original object
     id theResult = theOriginalObject;
     
