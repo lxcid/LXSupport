@@ -27,6 +27,11 @@
 		AB82414A15B7DFE30095F844 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB82414915B7DFE30095F844 /* CoreGraphics.framework */; };
 		AB82414E15B7E0BD0095F844 /* CGGeometry+LXSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB82414D15B7E0BD0095F844 /* CGGeometry+LXSupportTests.m */; };
 		AB859AE315D8338F00097A7C /* LXSGraphObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB859AE215D8338F00097A7C /* LXSGraphObjectTests.m */; };
+		ABBCD0E215DA711E0051E313 /* LXSHelperOfNSData.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBCD0E015DA711E0051E313 /* LXSHelperOfNSData.h */; };
+		ABBCD0E315DA711E0051E313 /* LXSHelperOfNSData.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBCD0E115DA711E0051E313 /* LXSHelperOfNSData.m */; };
+		ABBCD0E615DA72D90051E313 /* NSData+LXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBCD0E415DA72D90051E313 /* NSData+LXSupport.h */; };
+		ABBCD0E715DA72D90051E313 /* NSData+LXSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBCD0E515DA72D90051E313 /* NSData+LXSupport.m */; };
+		ABBCD0EA15DA73580051E313 /* NSData+LXSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBCD0E915DA73580051E313 /* NSData+LXSupportTests.m */; };
 		ABC4F34015C6454C002DE497 /* NSString+LXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = ABC4F33E15C6454C002DE497 /* NSString+LXSupport.h */; };
 		ABC4F34115C6454C002DE497 /* NSString+LXSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC4F33F15C6454C002DE497 /* NSString+LXSupport.m */; };
 		ABD1B0CA15BA9019008F2641 /* Math+LXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = ABD1B0C915BA9019008F2641 /* Math+LXSupport.h */; };
@@ -75,6 +80,12 @@
 		AB82414D15B7E0BD0095F844 /* CGGeometry+LXSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+LXSupportTests.m"; sourceTree = "<group>"; };
 		AB859AE115D8338F00097A7C /* LXSGraphObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSGraphObjectTests.h; sourceTree = "<group>"; };
 		AB859AE215D8338F00097A7C /* LXSGraphObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSGraphObjectTests.m; sourceTree = "<group>"; };
+		ABBCD0E015DA711E0051E313 /* LXSHelperOfNSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSHelperOfNSData.h; sourceTree = "<group>"; };
+		ABBCD0E115DA711E0051E313 /* LXSHelperOfNSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSHelperOfNSData.m; sourceTree = "<group>"; };
+		ABBCD0E415DA72D90051E313 /* NSData+LXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+LXSupport.h"; sourceTree = "<group>"; };
+		ABBCD0E515DA72D90051E313 /* NSData+LXSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+LXSupport.m"; sourceTree = "<group>"; };
+		ABBCD0E815DA73580051E313 /* NSData+LXSupportTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+LXSupportTests.h"; sourceTree = "<group>"; };
+		ABBCD0E915DA73580051E313 /* NSData+LXSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+LXSupportTests.m"; sourceTree = "<group>"; };
 		ABC4F33E15C6454C002DE497 /* NSString+LXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LXSupport.h"; sourceTree = "<group>"; };
 		ABC4F33F15C6454C002DE497 /* NSString+LXSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LXSupport.m"; sourceTree = "<group>"; };
 		ABD1B0C915BA9019008F2641 /* Math+LXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Math+LXSupport.h"; sourceTree = "<group>"; };
@@ -150,6 +161,7 @@
 		AB2A7A6115B18A66008F7B4B /* LXSupport */ = {
 			isa = PBXGroup;
 			children = (
+				ABBCD0DE15DA70F00051E313 /* Helpers */,
 				AB82414515B7DF320095F844 /* Extensions */,
 				AB2A7A8615B18A8F008F7B4B /* Categories */,
 				AB2A7A6215B18A66008F7B4B /* Supporting Files */,
@@ -204,6 +216,8 @@
 				ABC4F33F15C6454C002DE497 /* NSString+LXSupport.m */,
 				AB51E62815C6935E00D7E063 /* NSDate+LXSupport.h */,
 				AB51E62915C6935E00D7E063 /* NSDate+LXSupport.m */,
+				ABBCD0E415DA72D90051E313 /* NSData+LXSupport.h */,
+				ABBCD0E515DA72D90051E313 /* NSData+LXSupport.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -217,6 +231,8 @@
 				ABEF2EDC15B19B75003FA8E7 /* NSDictionary+LXSupportTests.m */,
 				ABEF2EE915B19DFA003FA8E7 /* NSArray+LXSupportTests.h */,
 				ABEF2EEA15B19DFA003FA8E7 /* NSArray+LXSupportTests.m */,
+				ABBCD0E815DA73580051E313 /* NSData+LXSupportTests.h */,
+				ABBCD0E915DA73580051E313 /* NSData+LXSupportTests.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -241,6 +257,15 @@
 			name = Extensions;
 			sourceTree = "<group>";
 		};
+		ABBCD0DE15DA70F00051E313 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				ABBCD0E015DA711E0051E313 /* LXSHelperOfNSData.h */,
+				ABBCD0E115DA711E0051E313 /* LXSHelperOfNSData.m */,
+			);
+			name = Helpers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -257,6 +282,8 @@
 				ABC4F34015C6454C002DE497 /* NSString+LXSupport.h in Headers */,
 				AB51E62A15C6935E00D7E063 /* NSDate+LXSupport.h in Headers */,
 				AB1DBE0E15D6CE3E005D4C0D /* LXSGraphObject.h in Headers */,
+				ABBCD0E215DA711E0051E313 /* LXSHelperOfNSData.h in Headers */,
+				ABBCD0E615DA72D90051E313 /* NSData+LXSupport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,6 +393,8 @@
 				ABC4F34115C6454C002DE497 /* NSString+LXSupport.m in Sources */,
 				AB51E62B15C6935E00D7E063 /* NSDate+LXSupport.m in Sources */,
 				AB1DBE0F15D6CE3E005D4C0D /* LXSGraphObject.m in Sources */,
+				ABBCD0E315DA711E0051E313 /* LXSHelperOfNSData.m in Sources */,
+				ABBCD0E715DA72D90051E313 /* NSData+LXSupport.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +408,7 @@
 				AB82414E15B7E0BD0095F844 /* CGGeometry+LXSupportTests.m in Sources */,
 				ABD1B0CE15BA914D008F2641 /* Math+LXSupportTests.m in Sources */,
 				AB859AE315D8338F00097A7C /* LXSGraphObjectTests.m in Sources */,
+				ABBCD0EA15DA73580051E313 /* NSData+LXSupportTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,6 +11,7 @@
 #import "NSArray+LXSupport.h"
 #import "NSString+LXSupport.h"
 #import "NSDate+LXSupport.h"
+#import "NSData+LXSupport.h"
 
 // Core Graphics
 #import "Math+LXSupport.h"
