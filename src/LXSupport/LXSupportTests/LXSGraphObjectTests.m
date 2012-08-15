@@ -49,7 +49,21 @@
      forKey:@"phone"];
     STAssertEqualObjects(theUser.phone.manufacturer, @"Apple", @"The user's phone's manufacturer should be Apple.");
     STAssertEqualObjects(theUser.phone.model, @"iPhone 4S", @"The user's phone's model should be iPhone 4S.");
-    NSLog(@"%@", theUser);
+    NSDictionary *theSimilarUser =
+    @{
+        @"age" : @26,
+        @"girlfriend" : @{
+            @"name" : @"Minty"
+        },
+        @"name" : @"Stan Chang Khin Boon",
+        @"phone" : @{
+            @"manufacturer" : @"Apple",
+            @"model" : @"iPhone 4S"
+        }
+    };
+    STAssertEqualObjects(theUser, theSimilarUser, @"The 2 users should be the same.");
+    
+    STFail(@"Test array.");
 }
 
 @end
