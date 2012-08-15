@@ -17,83 +17,34 @@
     return [NSData dataWithBytesNoCopy:theMacOut length:CC_SHA1_DIGEST_LENGTH freeWhenDone:YES];
 }
 
+// https://github.com/mattt/AFOAuth1Client/blob/master/AFHTTPClient.m
+// I loves mattt implementation the most. The cleanest I have seen.
 + (NSString *)stringByEncodeUsingBase64WithData:(NSData *)theData {
-    // I have a habit of trying to describe something as accurate as possible, even at the expense of performance...
-    NSUInteger theInputLength = theData.length;
-    const char *theInputBytes = theData.bytes;
+    NSUInteger theLength = theData.length;
+    NSMutableData *theBase64EncodedData = [NSMutableData dataWithLength:((theLength + 2) / 3) * 4];
     
-    // Calculating the result length
-    double theNumerator = (double)theInputLength;
-    double theRemainder = fmod(theNumerator, 3.0);
-    double theIntegralQuotient = theNumerator - theRemainder;
-    NSUInteger theOutputLength = ((NSUInteger)theIntegralQuotient / 3) * 4;
-    if (theRemainder > 0.0) { // Required padding
-        theOutputLength += 4;
-    }
-    char *theOutputBytes = malloc(theOutputLength * sizeof(char));
+    uint8_t *theInput = (uint8_t *)theData.bytes;
+    uint8_t *theOutput = (uint8_t *)theBase64EncodedData.mutableBytes;
     
-    static const char theLookupTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-    
-    NSUInteger theInputIndex = 0;
-    NSUInteger theOutputIndex = 0;
-    for (theInputIndex = 0; theInputIndex < (theInputLength - 2); theInputIndex += 3) {
-        // First 6 bits
-        theOutputBytes[theOutputIndex] = theLookupTable[((theInputBytes[theInputIndex] & 0xFC) >> 2)];
-        theOutputIndex++;
+    for (NSUInteger theIndex = 0; theIndex < theLength; theIndex += 3) {
+        NSUInteger theValue = 0;
+        for (NSUInteger theOtherIndex = 0; theOtherIndex < (theIndex + 3); theOtherIndex++) {
+            theValue <<= 8;
+            if (theOtherIndex < theLength) {
+                theValue |= (0xFF & theInput[theOtherIndex]);
+            }
+        }
         
-        // Next 6 bits
-        theOutputBytes[theOutputIndex] = theLookupTable[((theInputBytes[theInputIndex] & 0x03) << 4) | ((theInputBytes[theInputIndex + 1] & 0xF0) >> 4)];
-        theOutputIndex++;
+        static uint8_t const theBase64EncodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
         
-        // Next 6 bits
-        theOutputBytes[theOutputIndex] = theLookupTable[((theInputBytes[theInputIndex + 1] & 0x0F) << 2) | ((theInputBytes[theInputIndex + 2] & 0xC0) >> 6)];
-        theOutputIndex++;
-        
-        // Last 6 bits
-        theOutputBytes[theOutputIndex] = theLookupTable[(theInputBytes[theInputIndex + 2] & 0x3F)];
-        theOutputIndex++;
-        
-        // TODO: (khinboon@d--buzz.com) Possible place to insert wrapping code.
+        NSUInteger theOutputIndex = (theIndex / 3) * 4;
+        theOutput[theOutputIndex + 0] = theBase64EncodingTable[(theValue >> 18) & 0x3F];
+        theOutput[theOutputIndex + 1] = theBase64EncodingTable[(theValue >> 12) & 0x3F];
+        theOutput[theOutputIndex + 2] = ((theIndex + 1) < theLength) ? theBase64EncodingTable[(theValue >> 6) & 0x3F] : '=';
+        theOutput[theOutputIndex + 3] = ((theIndex + 2) < theLength) ? theBase64EncodingTable[(theValue >> 0) & 0x3F] : '=';
     }
     
-    // Handles left over input bytes.
-    if (theInputIndex == (theInputLength - 2)) { // 16 bits left over.
-        // First 6 bits
-        theOutputBytes[theOutputIndex] = theLookupTable[((theInputBytes[theInputIndex] & 0xFC) >> 2)];
-        theOutputIndex++;
-        
-        // Next 6 bits
-        theOutputBytes[theOutputIndex] = theLookupTable[((theInputBytes[theInputIndex] & 0x03) << 4) | ((theInputBytes[theInputIndex + 1] & 0xF0) >> 4)];
-        theOutputIndex++;
-        
-        // Last 6 bits
-        theOutputBytes[theOutputIndex] = theLookupTable[((theInputBytes[theInputIndex + 1] & 0x0F) << 2)];
-        theOutputIndex++;
-        
-        // Terminates with =
-        theOutputBytes[theOutputIndex] = '=';
-        theOutputIndex++;
-    } else if (theInputIndex == (theInputLength - 1)) {
-        // First 6 bits
-        theOutputBytes[theOutputIndex] = theLookupTable[((theInputBytes[theInputIndex] & 0xFC) >> 2)];
-        theOutputIndex++;
-        
-        // Last 6 bits
-        theOutputBytes[theOutputIndex] = theLookupTable[((theInputBytes[theInputIndex] & 0x03) << 4)];
-        theOutputIndex++;
-        
-        // Terminates with =
-        theOutputBytes[theOutputIndex] = '=';
-        theOutputIndex++;
-        
-        // Terminates with =
-        theOutputBytes[theOutputIndex] = '=';
-        theOutputIndex++;
-    }
-    
-    NSString *theBase64EncodedString = [[NSString alloc] initWithBytesNoCopy:theOutputBytes length:theOutputLength encoding:NSASCIIStringEncoding freeWhenDone:YES];
-    
-    return theBase64EncodedString;
+    return [[NSString alloc] initWithData:theBase64EncodedData encoding:NSASCIIStringEncoding];
 }
 
 @end
