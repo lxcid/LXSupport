@@ -19,4 +19,8 @@
     return [LXSHelperOfNSData stringByEncodeUsingBase64WithData:self];
 }
 
+- (NSData *)dataByDecodeUsingBase64 {
+    return [LXSHelperOfNSData dataByDecodeUsingBase64WithData:self];
+}
+
 @end

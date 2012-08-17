@@ -38,4 +38,33 @@
     }
 }
 
+- (void)testBase64Decoding {
+    // Left 16 bytes
+    {
+        NSString *theBase64DecodedString = @"Send reinforcements";
+        NSData *theBase64EncodedData = [@"U2VuZCByZWluZm9yY2VtZW50cw==" dataUsingEncoding:NSASCIIStringEncoding];
+        NSData *theBase64DecodedData = [theBase64EncodedData dataByDecodeUsingBase64];
+        STAssertEquals([theBase64DecodedString dataUsingEncoding:NSASCIIStringEncoding].length, theBase64DecodedData.length, @"The length should match.");
+        STAssertEqualObjects(theBase64DecodedString, [[NSString alloc] initWithData:theBase64DecodedData encoding:NSASCIIStringEncoding], @"The data should match.");
+    }
+    
+    // Left 8 bytes
+    {
+        NSString *theBase64DecodedString = @"Additional Supply Depot required";
+        NSData *theBase64EncodedData = [@"QWRkaXRpb25hbCBTdXBwbHkgRGVwb3QgcmVxdWlyZWQ=" dataUsingEncoding:NSASCIIStringEncoding];
+        NSData *theBase64DecodedData = [theBase64EncodedData dataByDecodeUsingBase64];
+        STAssertEquals([theBase64DecodedString dataUsingEncoding:NSASCIIStringEncoding].length, theBase64DecodedData.length, @"The length should match.");
+        STAssertEqualObjects(theBase64DecodedString, [[NSString alloc] initWithData:theBase64DecodedData encoding:NSASCIIStringEncoding], @"The data should match.");
+    }
+    
+    // Left 0 bytes
+    {
+        NSString *theBase64DecodedString = @"Reinforcements have arrived";
+        NSData *theBase64EncodedData = [@"UmVpbmZvcmNlbWVudHMgaGF2ZSBhcnJpdmVk" dataUsingEncoding:NSASCIIStringEncoding];
+        NSData *theBase64DecodedData = [theBase64EncodedData dataByDecodeUsingBase64];
+        STAssertEquals([theBase64DecodedString dataUsingEncoding:NSASCIIStringEncoding].length, theBase64DecodedData.length, @"The length should match.");
+        STAssertEqualObjects(theBase64DecodedString, [[NSString alloc] initWithData:theBase64DecodedData encoding:NSASCIIStringEncoding], @"The data should match.");
+    }
+}
+
 @end
