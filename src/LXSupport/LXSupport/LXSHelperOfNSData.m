@@ -92,7 +92,7 @@
         for (NSUInteger theOtherIndex = 0; theOtherIndex < (theIndex + 4); theOtherIndex++) {
             theValue <<= 6;
             if (theOtherIndex < theLength) {
-                theValue |= theBase64DecodingTable[theInput[theOtherIndex]];
+                theValue |= (0x3F & theBase64DecodingTable[theInput[theOtherIndex]]);
             }
         }
         
