@@ -22,7 +22,9 @@ LXS_CGSizeMultiplyByScalar(CGSize theSize, CGFloat theScalar) {
     return CGSizeMake(theSize.width * theScalar, theSize.height * theScalar);
 }
 
-// This method start the the left (1.0f, 0.0f) and turn counter-clockwise as the radian increases.
+// The default coordinate system in UIKit has its origin in the top-left corner and has axes that extend down and to the right from the origin point. http://developer.apple.com/library/ios/#documentation/windowsviews/conceptual/viewpg_iphoneos/WindowsandViews/WindowsandViews.html#//apple_ref/doc/uid/TP40009503-CH2-SW5
+
+// This method start at the right (1.0f, 0.0f) and turn counter-clockwise as the radian increases.
 // http://en.wikipedia.org/wiki/File:Degree-Radian_Conversion.svg
 //
 // Will suffer from floating point precision problem: http://stackoverflow.com/a/1610346/379604
@@ -30,14 +32,13 @@ LXS_CGSizeMultiplyByScalar(CGSize theSize, CGFloat theScalar) {
 // TODO: (khinboon@d--buzz.com) Resolve the precision problem.
 CG_INLINE CGSize
 LXS_CGSizeFromAngleAndDistance(CGFloat theAngleInRadian, CGFloat theDistance) {
-    return LXS_CGSizeMultiplyByScalar(CGSizeMake(cosf(theAngleInRadian), sinf(theAngleInRadian)), theDistance);
+    return LXS_CGSizeMultiplyByScalar(CGSizeMake(cosf(theAngleInRadian), -sinf(theAngleInRadian)), theDistance);
 }
 
+// The opposite to LXS_CGSizeFromAngleAndDistance. Similar to how photoshop calculate drop shadow, where the angle define the location of the light source.
 CG_INLINE CGSize
 LXS_CGSizeOfShadowFromAngleAndDistance(CGFloat theAngleInRadian, CGFloat theDistance) {
-    CGSize theSize = LXS_CGSizeFromAngleAndDistance(theAngleInRadian, theDistance);
-    theSize.width *= -1.0f;
-    return theSize;
+    return LXS_CGSizeMultiplyByScalar(CGSizeMake(-cosf(theAngleInRadian), sinf(theAngleInRadian)), theDistance);
 }
 
 CG_INLINE CGRect

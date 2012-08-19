@@ -22,7 +22,7 @@
     {
         CGSize theSize = LXS_CGSizeFromAngleAndDistance(-M_PI_2, 1.0f);
         STAssertEqualsWithAccuracy(theSize.width, 0.0f, 0.000001f, @"Must pass equality with accuracy test.");
-        STAssertEqualsWithAccuracy(theSize.height, -1.0f, 0.000001f, @"Must pass equality with accuracy test.");
+        STAssertEqualsWithAccuracy(theSize.height, 1.0f, 0.000001f, @"Must pass equality with accuracy test.");
     }
     
     {
@@ -33,6 +33,31 @@
     
     {
         CGSize theSize = LXS_CGSizeFromAngleAndDistance(M_PI_2, 5.0f);
+        STAssertEqualsWithAccuracy(theSize.width, 0.0f, 0.000001f, @"Must pass equality with accuracy test.");
+        STAssertEqualsWithAccuracy(theSize.height, -5.0f, 0.000001f, @"Must pass equality with accuracy test.");
+    }
+    
+    {
+        CGSize theSize = LXS_CGSizeFromAngleAndDistance(M_PI, 2.0f);
+        STAssertEqualsWithAccuracy(theSize.width, -2.0f, 0.000001f, @"Must pass equality with accuracy test.");
+        STAssertEqualsWithAccuracy(theSize.height, 0.0f, 0.000001f, @"Must pass equality with accuracy test.");
+    }
+    
+    {
+        CGSize theSize = LXS_CGSizeFromAngleAndDistance(3.0f * M_PI / 2.0f, 10.0f);
+        STAssertEqualsWithAccuracy(theSize.width, 0.0f, 0.000001f, @"Must pass equality with accuracy test.");
+        STAssertEqualsWithAccuracy(theSize.height, 10.0f, 0.000001f, @"Must pass equality with accuracy test.");
+    }
+    
+    
+    {
+        CGSize theSize = LXS_CGSizeOfShadowFromAngleAndDistance(0.0f, 3.0f);
+        STAssertEqualsWithAccuracy(theSize.width, -3.0f, 0.000001f, @"Must pass equality with accuracy test.");
+        STAssertEqualsWithAccuracy(theSize.height, 0.0f, 0.000001f, @"Must pass equality with accuracy test.");
+    }
+    
+    {
+        CGSize theSize = LXS_CGSizeOfShadowFromAngleAndDistance(M_PI_2, 5.0f);
         STAssertEqualsWithAccuracy(theSize.width, 0.0f, 0.000001f, @"Must pass equality with accuracy test.");
         STAssertEqualsWithAccuracy(theSize.height, 5.0f, 0.000001f, @"Must pass equality with accuracy test.");
     }
