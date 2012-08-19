@@ -17,6 +17,29 @@ LXS_CGSizeAdd(CGSize theSize1, CGSize theSize2)
     return CGSizeMake(theSize1.width + theSize2.width, theSize1.height + theSize2.height);
 }
 
+CG_INLINE CGSize
+LXS_CGSizeMultiplyByScalar(CGSize theSize, CGFloat theScalar) {
+    return CGSizeMake(theSize.width * theScalar, theSize.height * theScalar);
+}
+
+// This method start the the left (1.0f, 0.0f) and turn counter-clockwise as the radian increases.
+// http://en.wikipedia.org/wiki/File:Degree-Radian_Conversion.svg
+//
+// Will suffer from floating point precision problem: http://stackoverflow.com/a/1610346/379604
+// Should be neglectable in most cases.
+// TODO: (khinboon@d--buzz.com) Resolve the precision problem.
+CG_INLINE CGSize
+LXS_CGSizeFromAngleAndDistance(CGFloat theAngleInRadian, CGFloat theDistance) {
+    return LXS_CGSizeMultiplyByScalar(CGSizeMake(cosf(theAngleInRadian), sinf(theAngleInRadian)), theDistance);
+}
+
+CG_INLINE CGSize
+LXS_CGSizeOfShadowFromAngleAndDistance(CGFloat theAngleInRadian, CGFloat theDistance) {
+    CGSize theSize = LXS_CGSizeFromAngleAndDistance(theAngleInRadian, theDistance);
+    theSize.width *= -1.0f;
+    return theSize;
+}
+
 CG_INLINE CGRect
 LXS_CGRectFromCGPointAndCGSize(CGPoint theOrigin, CGSize theSize)
 {
