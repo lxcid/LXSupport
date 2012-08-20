@@ -35,7 +35,7 @@
             }
         }
         
-        static uint8_t const theBase64EncodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+        static uint8_t const theBase64EncodingTable[64] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
         
         NSUInteger theOutputIndex = (theIndex / 3) * 4;
         theOutput[theOutputIndex + 0] = theBase64EncodingTable[(theValue >> 18) & 0x3F];
@@ -68,7 +68,7 @@
     // Our algorithm, which is derived from mattt's base 64 encoding and uses Matt Gallagher
     // base 64 decoding table, uses 0 instead of xx (either 'A' or masked-out area) as it won't
     // cause any side effects. :)
-    static uint8_t const theBase64DecodingTable[] = {
+    static uint8_t const theBase64DecodingTable[256] = {
          0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
          0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,
          0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0, 62,  0,  0,  0, 63,
