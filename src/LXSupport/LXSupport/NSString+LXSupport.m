@@ -10,6 +10,18 @@
 
 @implementation NSString (LXSupport)
 
++ (NSString *)stringByRandomlyGeneratedFromAlphanumericSetWithLength:(NSUInteger)theLength {
+    static uint8_t const theAlphanumericTable[62] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    size_t theAlphanumericTableLength = sizeof(theAlphanumericTable) / sizeof(*theAlphanumericTable);
+    NSMutableData *theRandomStringData = [NSMutableData dataWithLength:theLength];
+    uint8_t *theOutput = (uint8_t *)theRandomStringData.mutableBytes;
+    for (NSUInteger theIndex = 0; theIndex < theLength; theIndex++) {
+        theOutput[theIndex] = theAlphanumericTable[arc4random_uniform(theAlphanumericTableLength)];
+    }
+    return [[NSString alloc] initWithData:theRandomStringData encoding:NSASCIIStringEncoding];
+}
+
+
 - (NSDate *)dateInRFC3339 {
     NSDateFormatter *theDateFormatter = [[NSDateFormatter alloc] init];
     NSLocale *theLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];

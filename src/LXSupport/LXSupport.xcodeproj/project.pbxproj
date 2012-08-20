@@ -27,6 +27,7 @@
 		AB82414A15B7DFE30095F844 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB82414915B7DFE30095F844 /* CoreGraphics.framework */; };
 		AB82414E15B7E0BD0095F844 /* CGGeometry+LXSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB82414D15B7E0BD0095F844 /* CGGeometry+LXSupportTests.m */; };
 		AB859AE315D8338F00097A7C /* LXSGraphObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB859AE215D8338F00097A7C /* LXSGraphObjectTests.m */; };
+		AB89F6A915E24F66004FB818 /* NSString+LXSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB89F6A815E24F66004FB818 /* NSString+LXSupportTests.m */; };
 		ABBCD0E215DA711E0051E313 /* LXSHelperOfNSData.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBCD0E015DA711E0051E313 /* LXSHelperOfNSData.h */; };
 		ABBCD0E315DA711E0051E313 /* LXSHelperOfNSData.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBCD0E115DA711E0051E313 /* LXSHelperOfNSData.m */; };
 		ABBCD0E615DA72D90051E313 /* NSData+LXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = ABBCD0E415DA72D90051E313 /* NSData+LXSupport.h */; };
@@ -80,6 +81,8 @@
 		AB82414D15B7E0BD0095F844 /* CGGeometry+LXSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+LXSupportTests.m"; sourceTree = "<group>"; };
 		AB859AE115D8338F00097A7C /* LXSGraphObjectTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSGraphObjectTests.h; sourceTree = "<group>"; };
 		AB859AE215D8338F00097A7C /* LXSGraphObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSGraphObjectTests.m; sourceTree = "<group>"; };
+		AB89F6A715E24F66004FB818 /* NSString+LXSupportTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LXSupportTests.h"; sourceTree = "<group>"; };
+		AB89F6A815E24F66004FB818 /* NSString+LXSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LXSupportTests.m"; sourceTree = "<group>"; };
 		ABBCD0E015DA711E0051E313 /* LXSHelperOfNSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSHelperOfNSData.h; sourceTree = "<group>"; };
 		ABBCD0E115DA711E0051E313 /* LXSHelperOfNSData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSHelperOfNSData.m; sourceTree = "<group>"; };
 		ABBCD0E415DA72D90051E313 /* NSData+LXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+LXSupport.h"; sourceTree = "<group>"; };
@@ -233,6 +236,8 @@
 				ABEF2EEA15B19DFA003FA8E7 /* NSArray+LXSupportTests.m */,
 				ABBCD0E815DA73580051E313 /* NSData+LXSupportTests.h */,
 				ABBCD0E915DA73580051E313 /* NSData+LXSupportTests.m */,
+				AB89F6A715E24F66004FB818 /* NSString+LXSupportTests.h */,
+				AB89F6A815E24F66004FB818 /* NSString+LXSupportTests.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -409,6 +414,7 @@
 				ABD1B0CE15BA914D008F2641 /* Math+LXSupportTests.m in Sources */,
 				AB859AE315D8338F00097A7C /* LXSGraphObjectTests.m in Sources */,
 				ABBCD0EA15DA73580051E313 /* NSData+LXSupportTests.m in Sources */,
+				AB89F6A915E24F66004FB818 /* NSString+LXSupportTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

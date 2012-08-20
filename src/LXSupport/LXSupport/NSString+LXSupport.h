@@ -10,6 +10,8 @@
 
 @interface NSString (LXSupport)
 
++ (NSString *)stringByRandomlyGeneratedFromAlphanumericSetWithLength:(NSUInteger)theLength;
+
 - (NSDate *)dateInRFC3339;
 - (NSDate *)dateInRFC2822;
 
