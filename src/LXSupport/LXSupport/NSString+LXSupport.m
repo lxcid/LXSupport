@@ -54,4 +54,14 @@
     }
 }
 
+// Uses mattt afnetworking legal characters set and solution.
+- (NSString *)stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)theStringEncoding includeReservedCharacters:(BOOL)isReservedCharactersIncluded {
+    if (isReservedCharactersIncluded) {
+        static NSString * const theLegalCharactersToBeEscaped = @"?!@#$^&%*+=,:;'\"`<>()[]{}/\\|~ ";
+        return (__bridge_transfer NSString *)CFURLCreateStringByAddingPercentEscapes(NULL, (__bridge CFStringRef)self, NULL, (__bridge CFStringRef)theLegalCharactersToBeEscaped, CFStringConvertNSStringEncodingToEncoding(theStringEncoding));
+    } else {
+        return [self stringByAddingPercentEscapesUsingEncoding:theStringEncoding];
+    }
+}
+
 @end

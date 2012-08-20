@@ -15,4 +15,6 @@
 - (NSDate *)dateInRFC3339;
 - (NSDate *)dateInRFC2822;
 
+- (NSString *)stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)theStringEncoding includeReservedCharacters:(BOOL)isReservedCharactersIncluded;
+
 @end

@@ -20,4 +20,13 @@
     }
 }
 
+- (void)testURLEncoding {
+    {
+        NSString *theLegalCharactersToBeEscaped = @"?!@#$^&%*+=,:;'\"`<>()[]{}/\\|~ ";
+        STAssertEqualObjects([theLegalCharactersToBeEscaped stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding includeReservedCharacters:YES], @"%3F%21%40%23%24%5E%26%25%2A%2B%3D%2C%3A%3B%27%22%60%3C%3E%28%29%5B%5D%7B%7D%2F%5C%7C%7E%20", @"Must pass equality test.");
+        
+        STAssertFalse([@"%3F%21%40%23%24%5E%26%25%2A%2B%3D%2C%3A%3B%27%22%60%3C%3E%28%29%5B%5D%7B%7D%2F%5C%7C%7E%20" isEqualToString:[theLegalCharactersToBeEscaped stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding includeReservedCharacters:NO]], @"Must fail equality test.");
+    }
+}
+
 @end
