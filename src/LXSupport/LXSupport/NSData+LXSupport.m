@@ -23,4 +23,8 @@
     return [LXSHelperOfNSData dataByDecodeUsingBase64WithData:self];
 }
 
+- (NSString *)hexadecimalString {
+    return [LXSHelperOfNSData hexadecimalStringFromData:self];
+}
+
 @end

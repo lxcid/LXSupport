@@ -21,6 +21,7 @@
 + (NSString *)stringByEncodeUsingBase64WithData:(NSData *)theData;
 + (NSData *)dataByDecodeUsingBase64WithData:(NSData *)theData;
 
++ (NSString *)hexadecimalStringFromData:(NSData *)theData;
 // TODO: (khinboon@d--buzz.com) MD5
 
 @end

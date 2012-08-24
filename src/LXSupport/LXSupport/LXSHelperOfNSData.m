@@ -105,4 +105,18 @@
     return [NSData dataWithData:theBase64DecodedData];
 }
 
++ (NSString *)hexadecimalStringFromData:(NSData *)theData {
+    uint8_t *theInput = (uint8_t *)theData.bytes;
+    NSUInteger theInputLength = theData.length;
+    
+    NSUInteger theHexadecimalStringLength = theInputLength * 2;
+    NSMutableString *theHexadecimalString = [NSMutableString stringWithCapacity:theHexadecimalStringLength];
+    
+    for (NSInteger theIndex = 0; theIndex < theInputLength; theIndex++) {
+        [theHexadecimalString appendFormat:@"%02X", theInput[theIndex]];
+    }
+    
+    return [theHexadecimalString copy];
+}
+
 @end
