@@ -8,6 +8,31 @@
 
 #import "NSString+LXSupport.h"
 
+// Uses mattt one.
+static inline NSDictionary *LXSParametersFromQueryString(NSString *theQueryString) {
+    NSMutableDictionary *theParameters = [NSMutableDictionary dictionary];
+    if (theQueryString) {
+        NSScanner *theParameterScanner = [[NSScanner alloc] initWithString:theQueryString];
+        NSString *theKey = nil;
+        NSString *theValue = nil;
+        while (!theParameterScanner.isAtEnd) {
+            theKey = nil;
+            [theParameterScanner scanUpToString:@"=" intoString:&theKey];
+            [theParameterScanner scanString:@"=" intoString:NULL];
+            
+            theValue = nil;
+            [theParameterScanner scanUpToString:@"&" intoString:&theValue];
+            [theParameterScanner scanString:@"&" intoString:NULL];
+            
+            if (theKey && theValue) {
+                [theParameters setValue:[theValue stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+                                 forKey:[theKey stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+            }
+        }
+    }
+    return theParameters;
+}
+
 @implementation NSString (LXSupport)
 
 + (NSString *)stringByRandomlyGeneratedFromAlphanumericSetWithLength:(NSUInteger)theLength {
@@ -62,6 +87,10 @@
     } else {
         return [self stringByAddingPercentEscapesUsingEncoding:theStringEncoding];
     }
+}
+
+- (NSDictionary *)queryStringAsParametersDictionary {
+    return LXSParametersFromQueryString(self);
 }
 
 @end
