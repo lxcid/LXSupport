@@ -18,4 +18,6 @@
 - (NSString *)stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)theStringEncoding includeReservedCharacters:(BOOL)isReservedCharactersIncluded;
 - (NSDictionary *)queryStringAsParametersDictionary;
 
+- (BOOL)isEmpty;
+
 @end

@@ -93,4 +93,8 @@ static inline NSDictionary *LXSParametersFromQueryString(NSString *theQueryStrin
     return LXSParametersFromQueryString(self);
 }
 
+- (BOOL)isEmpty {
+    return [self isEqualToString:@""];
+}
+
 @end
