@@ -22,6 +22,11 @@ LXS_CGSizeMultiplyByScalar(CGSize theSize, CGFloat theScalar) {
     return CGSizeMake(theSize.width * theScalar, theSize.height * theScalar);
 }
 
+CG_INLINE CGPoint
+LXS_CGPointAdd(CGPoint thePoint1, CGPoint thePoint2) {
+    return CGPointMake(thePoint1.x + thePoint2.x, thePoint1.y + thePoint2.y);
+}
+
 // The default coordinate system in UIKit has its origin in the top-left corner and has axes that extend down and to the right from the origin point. http://developer.apple.com/library/ios/#documentation/windowsviews/conceptual/viewpg_iphoneos/WindowsandViews/WindowsandViews.html#//apple_ref/doc/uid/TP40009503-CH2-SW5
 
 // This method start at the right (1.0f, 0.0f) and turn counter-clockwise as the radian increases.
