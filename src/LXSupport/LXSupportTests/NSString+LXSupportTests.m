@@ -29,4 +29,18 @@
     }
 }
 
+- (void)testRFC3339 {
+    {
+        NSString *theDateInString = @"1991-01-01T00:00:00Z";
+        NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:662688000.0];
+        STAssertEqualObjects([theDateInString dateInRFC3339], theDate, @"RFC3339 %@ does not match %@", theDateInString, theDate);
+    }
+    
+    {
+        NSString *theDateInString = @"1991-01-01T08:00:00+08:00";
+        NSDate *theDate = [NSDate dateWithTimeIntervalSince1970:662688000.0];
+        STAssertEqualObjects([theDateInString dateInRFC3339], theDate, @"RFC3339 %@ does not match %@", theDateInString, theDate);
+    }
+}
+
 @end

@@ -48,18 +48,34 @@ static inline NSDictionary *LXSParametersFromQueryString(NSString *theQueryStrin
 
 
 - (NSDate *)dateInRFC3339 {
-    NSDateFormatter *theDateFormatter = [[NSDateFormatter alloc] init];
-    NSLocale *theLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
-    theDateFormatter.locale = theLocale;
-    NSDate *theDate = nil;
-    NSError *theError = nil;
-    // 2012-07-30T04:13:28Z
-    theDateFormatter.dateFormat = @"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z";
-    if ([theDateFormatter getObjectValue:&theDate forString:self range:nil error:&theError]) {
-        return theDate;
+    if ([self hasSuffix:@"Z"]) { // 2012-07-30T04:13:28Z
+        NSDateFormatter *theDateFormatter = [[NSDateFormatter alloc] init];
+        NSLocale *theLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        theDateFormatter.locale = theLocale;
+        NSTimeZone *theTimeZone = [NSTimeZone timeZoneForSecondsFromGMT:0];
+        theDateFormatter.timeZone = theTimeZone;
+        NSDate *theDate = nil;
+        NSError *theError = nil;
+        theDateFormatter.dateFormat = @"yyyy'-'MM'-'dd'T'HH':'mm':'ss'Z'";
+        if ([theDateFormatter getObjectValue:&theDate forString:self range:nil error:&theError]) {
+            return theDate;
+        } else {
+            NSLog(@"Date '%@' could not be parsed with RFC 3339 format: %@", self, theError);
+            return nil;
+        }
     } else {
-        NSLog(@"Date '%@' could not be parsed with RFC 3339 format: %@", self, theError);
-        return nil;
+        NSDateFormatter *theDateFormatter = [[NSDateFormatter alloc] init];
+        NSLocale *theLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+        theDateFormatter.locale = theLocale;
+        NSDate *theDate = nil;
+        NSError *theError = nil;
+        theDateFormatter.dateFormat = @"yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZZZ";
+        if ([theDateFormatter getObjectValue:&theDate forString:self range:nil error:&theError]) {
+            return theDate;
+        } else {
+            NSLog(@"Date '%@' could not be parsed with RFC 3339 format: %@", self, theError);
+            return nil;
+        }
     }
 }
 
