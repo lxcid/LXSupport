@@ -22,4 +22,12 @@
     return [self dateAtEndOfDayWithCalendar:[NSCalendar currentCalendar]];
 }
 
+- (NSString *)stringInRFC3339 {
+    NSDateFormatter *theDateFormatter = [[NSDateFormatter alloc] init];
+    NSLocale *theLocale = [[NSLocale alloc] initWithLocaleIdentifier:@"en_US_POSIX"];
+    theDateFormatter.locale = theLocale;
+    theDateFormatter.dateFormat = @"yyyy'-'MM'-'dd'T'HH':'mm':'ssZZZZZ";
+    return [theDateFormatter stringFromDate:self];
+}
+
 @end

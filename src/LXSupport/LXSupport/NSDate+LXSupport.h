@@ -12,5 +12,6 @@
 
 - (NSDate *)dateAtEndOfDayWithCalendar:(NSCalendar *)theCalendar;
 - (NSDate *)dateAtEndOfDay;
+- (NSString *)stringInRFC3339;
 
 @end
