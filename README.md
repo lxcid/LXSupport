@@ -20,3 +20,10 @@ Disclaimer
 ==========
 
 I am not a great Open Source project maintainer, I would have to warn first. But I'll try my best.
+
+Further Disclaimer
+==================
+
+Also, as this project is a consolidation of many great solutions found in the net, which can come in form of blog post, snippets from other open source projects, forums, stack overflow. Tracking credits is hard. Usually they are mentioned as code comments, github issues. But I'm not ready to lead this project yet. So they will remains in these places for now.
+
+These are hand copied and sometimes improved solution, comforming to my coding convention, (some) guard against unit tests, refactored.
