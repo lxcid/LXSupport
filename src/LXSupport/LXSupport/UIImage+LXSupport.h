@@ -11,12 +11,12 @@
 @interface UIImage (LXSupport)
 
 // http://vocaro.com/trevor/blog/2009/10/12/resize-a-uiimage-the-right-way/
-- (BOOL)hasAlpha;
++ (UIImage *)borderMaskImageOfBorderSize:(CGFloat)theBorderSize forImageSize:(CGSize)theImageSize scale:(CGFloat)theScale orientation:(UIImageOrientation)theOrientation;
 
+- (BOOL)hasAlpha;
 - (UIImage *)imageWithAlpha;
-- (UIImage *)borderMaskImageOfBorderSize:(NSUInteger)theBorderSize forImageSize:(CGSize)theImageSize;
-- (UIImage *)imageWithTransparentBorderOfSize:(NSUInteger)theBorderSize;
-- (UIImage *)imageWithAdditionalTransparentBorderOfSize:(NSUInteger)theBorderSize;
-- (UIImage *)imageWithBorderOfSize:(NSUInteger)theBorderSize color:(UIColor *)theBorderColor;
+- (UIImage *)imageWithTransparentBorderOfSize:(CGFloat)theBorderSize;
+- (UIImage *)imageWithAdditionalTransparentBorderOfSize:(CGFloat)theBorderSize;
+- (UIImage *)imageWithBorderOfSize:(CGFloat)theBorderSize color:(UIColor *)theBorderColor;
 
 @end
