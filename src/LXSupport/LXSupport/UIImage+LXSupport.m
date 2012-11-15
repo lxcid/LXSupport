@@ -10,6 +10,8 @@
 
 @implementation UIImage (LXSupport)
 
+#pragma mark - Alpha
+
 // Creates a mask that makes the outer edges transparent and everything else opaque
 // The size must include the entire mask (opaque part + transparent border)
 // The caller is responsible for releasing the returned reference by calling CGImageRelease
@@ -124,6 +126,123 @@
     UIGraphicsEndImageContext();
     
     return theBorderImage;
+}
+
+#pragma mark - Resize
+
++ (CGAffineTransform)affineTransformForSize:(CGSize)theSize withImageOrientation:(UIImageOrientation)theImageOrientation {
+    CGAffineTransform theTransform = CGAffineTransformIdentity;
+    
+    switch (theImageOrientation) {
+        case UIImageOrientationDown: // EXIF = 3
+        case UIImageOrientationDownMirrored: { // EXIF = 4
+            theTransform = CGAffineTransformTranslate(theTransform, theSize.width, theSize.height);
+            theTransform = CGAffineTransformRotate(theTransform, M_PI);
+        } break;
+        case UIImageOrientationLeft: // EXIF = 6
+        case UIImageOrientationLeftMirrored: { // EXIF = 5
+            theTransform = CGAffineTransformTranslate(theTransform, theSize.width, 0.0f);
+            theTransform = CGAffineTransformRotate(theTransform, M_PI_2);
+        } break;
+        case UIImageOrientationRight: // EXIF = 8
+        case UIImageOrientationRightMirrored: { // EXIF = 7
+            theTransform = CGAffineTransformTranslate(theTransform, 0.0f, theSize.height);
+            theTransform = CGAffineTransformRotate(theTransform, -M_PI_2);
+        } break;
+        
+        case UIImageOrientationUp: // EXIF = 1
+        case UIImageOrientationUpMirrored: { // EXIF = 2
+            // Do nothing...
+        } break;
+    }
+    
+    // Mirrored only...
+    switch (theImageOrientation) {
+        case UIImageOrientationUpMirrored: // EXIF = 2
+        case UIImageOrientationDownMirrored: { // EXIF = 4
+            theTransform = CGAffineTransformTranslate(theTransform, theSize.width, 0.0f);
+            theTransform = CGAffineTransformScale(theTransform, -1.0f, 1.0f);
+        } break;
+        case UIImageOrientationLeftMirrored:  // EXIF = 5
+        case UIImageOrientationRightMirrored: { // EXIF = 7
+            theTransform = CGAffineTransformTranslate(theTransform, theSize.height, 0.0f);
+            theTransform = CGAffineTransformScale(theTransform, -1.0f, 1.0f);
+        } break;
+        
+        default: {
+            // Do nothing...
+        } break;
+    }
+    
+    return theTransform;
+}
+
+// Returns a copy of this image that is cropped to the given bounds.
+// The bounds will be adjusted using CGRectIntegral.
+// This method ignores the image's imageOrientation setting.
+- (UIImage *)croppedImageToBounds:(CGRect)theBounds {
+    CGImageRef theCroppedImageRef = CGImageCreateWithImageInRect(self.CGImage, theBounds);
+    UIImage *theCroppedImage = [UIImage imageWithCGImage:theCroppedImageRef scale:self.scale orientation:self.imageOrientation];
+    CGImageRelease(theCroppedImageRef);
+    return theCroppedImage;
+}
+
+- (UIImage *)resizedImageWithSize:(CGSize)theSize affineTransform:(CGAffineTransform)theAffineTransform drawTransposed:(BOOL)theDrawTransposed interpolationQuality:(CGInterpolationQuality)theInterpolationQuality {
+    UIGraphicsBeginImageContextWithOptions(theSize, ![self hasAlpha], self.scale);
+    CGContextRef theOffscreenContext = UIGraphicsGetCurrentContext();
+    
+    //http://developer.apple.com/library/ios/#qa/qa1708/_index.html
+    // Flip the context because UIKit coordinate system is upside down to Quartz coordinate system
+    CGContextTranslateCTM(theOffscreenContext, 0.0f, theSize.height);
+    CGContextScaleCTM(theOffscreenContext, 1.0f, -1.0f);
+    CGContextSetBlendMode(theOffscreenContext, kCGBlendModeCopy);
+    
+    CGContextConcatCTM(theOffscreenContext, theAffineTransform);
+    CGContextSetInterpolationQuality(theOffscreenContext, theInterpolationQuality);
+    CGContextDrawImage(theOffscreenContext, CGRectMake(0.0f, 0.0f, self.size.width, self.size.height), self.CGImage);
+    UIImage *theResizedImage = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    return theResizedImage;
+}
+
+- (UIImage *)resizedImageWithContentMode:(UIViewContentMode)theContentMode size:(CGSize)theSize interpolationQuality:(CGInterpolationQuality)theInterpolationQuality {
+    CGFloat theHorizontalRatio = theSize.width / self.size.width;
+    CGFloat theVerticalRatio = theSize.height / self.size.height;
+    
+    CGFloat theScale = 1.0f;
+    switch (theContentMode) {
+        case UIViewContentModeScaleAspectFill: {
+            theScale = MAX(theHorizontalRatio, theVerticalRatio);
+        } break;
+        case UIViewContentModeScaleAspectFit: {
+            theScale = MIN(theHorizontalRatio, theVerticalRatio);
+        } break;
+        default: {
+            [NSException raise:NSInvalidArgumentException format:@"Unsupported content mode: %d", theContentMode];
+        } break;
+    }
+    
+    CGSize theImageSize = CGSizeMake(self.size.width * theScale, self.size.height * theScale);
+    CGPoint theImageOffset = CGPointMake((theSize.width - theImageSize.width) / 2.0f, (theSize.height - theImageSize.height) / 2.0f);
+    
+    CGAffineTransform theAffineTransform = [UIImage affineTransformForSize:theSize withImageOrientation:self.imageOrientation];
+    theAffineTransform = CGAffineTransformTranslate(theAffineTransform, theImageOffset.x, theImageOffset.y);
+    theAffineTransform = CGAffineTransformScale(theAffineTransform, theScale, theScale);
+    
+    BOOL theDrawTransposed = NO;
+    switch (self.imageOrientation) {
+        case UIImageOrientationLeft:
+        case UIImageOrientationLeftMirrored:
+        case UIImageOrientationRight:
+        case UIImageOrientationRightMirrored: {
+            theDrawTransposed = YES;
+        } break;
+        default: {
+            theDrawTransposed = NO;
+        } break;
+    }
+    
+    return [self resizedImageWithSize:theSize affineTransform:theAffineTransform drawTransposed:theDrawTransposed interpolationQuality:theInterpolationQuality];
 }
 
 @end

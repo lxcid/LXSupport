@@ -11,6 +11,7 @@
 @interface UIImage (LXSupport)
 
 // http://vocaro.com/trevor/blog/2009/10/12/resize-a-uiimage-the-right-way/
+#pragma mark - Alpha
 + (UIImage *)borderMaskImageOfBorderSize:(CGFloat)theBorderSize forImageSize:(CGSize)theImageSize scale:(CGFloat)theScale orientation:(UIImageOrientation)theOrientation;
 
 - (BOOL)hasAlpha;
@@ -18,5 +19,12 @@
 - (UIImage *)imageWithTransparentBorderOfSize:(CGFloat)theBorderSize;
 - (UIImage *)imageWithAdditionalTransparentBorderOfSize:(CGFloat)theBorderSize;
 - (UIImage *)imageWithBorderOfSize:(CGFloat)theBorderSize color:(UIColor *)theBorderColor;
+
+#pragma mark - Resize
++ (CGAffineTransform)affineTransformForSize:(CGSize)theSize withImageOrientation:(UIImageOrientation)theImageOrientation;
+
+- (UIImage *)croppedImageToBounds:(CGRect)theBounds;
+- (UIImage *)resizedImageWithSize:(CGSize)theSize affineTransform:(CGAffineTransform)theAffineTransform drawTransposed:(BOOL)theDrawTransposed interpolationQuality:(CGInterpolationQuality)theInterpolationQuality;
+- (UIImage *)resizedImageWithContentMode:(UIViewContentMode)theContentMode size:(CGSize)theSize interpolationQuality:(CGInterpolationQuality)theInterpolationQuality;
 
 @end
