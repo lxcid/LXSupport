@@ -12,7 +12,8 @@
 @implementation UIColor_LXSupportTests
 
 - (void)testDecimalNotation {
-    // TODO: (khinboon@d--buzz.com) Explains why can't we use [UIColor whiteColor].
+    STFail(@"TODO: (khinboon@d--buzz.com) Explains why can't we use [UIColor whiteColor].");
+    
     STAssertEqualObjects([UIColor colorInDecimalNotationWithRed:255 green:255 blue:255 alpha:1.0f],
                          [UIColor colorWithRed:1.0f green:1.0f blue:1.0f alpha:1.0f],
                          @"The colors should be equal.");

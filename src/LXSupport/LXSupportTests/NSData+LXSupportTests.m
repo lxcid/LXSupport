@@ -12,7 +12,7 @@
 @implementation NSData_LXSupportTests
 
 - (void)testHMACSHA1 {
-    // TODO: (khinboon@gmail.com) Test HMAC SHA1.
+    STFail(@"TODO: (khinboon@gmail.com) Test HMAC SHA1.");
 }
 
 - (void)testBase64Encoding {

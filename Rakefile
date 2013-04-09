@@ -12,21 +12,30 @@ class String
   end
 end
 
-def test_scheme(scheme, verbose = false)
-  command = "xcodebuild -project src/LXSupport/LXSupport.xcodeproj -target LXSupportTests -sdk iphonesimulator -configuration Debug TEST_AFTER_BUILD=YES 2>&1"
+def test_target(target, verbose = false)
+  command = "xcodebuild -project src/LXSupport/LXSupport.xcodeproj -target #{target} -sdk iphonesimulator -configuration Debug TEST_AFTER_BUILD=YES 2>&1"
   IO.popen(command) do |io|
     out = 0
     while line = io.gets do
       if verbose
         puts line
       else
-        if line =~ /Started tests for architectures/
+        if line =~ /Started tests for architectures/i
           out = out + 1
-        elsif line =~ /Completed tests for architectures/
+        elsif line =~ /Completed tests for architectures/i
           out = out - 1
         end
         
-        puts line if out > 0
+        if out > 0
+          case line
+          when /failed/i, /error/i
+            puts line.red
+          when /passed/i
+            puts line.green
+          else
+            puts line
+          end
+        end
       end
       
       if line == "** BUILD SUCCEEDED **\n"
@@ -41,7 +50,7 @@ end
 desc 'Run the tests'
 task :test do
   verbose = ENV['VERBOSE']
-  ios = test_scheme('LXSupport', verbose)
+  ios = test_target('LXSupportTests', verbose)
 
   puts "\n\n\n" if verbose
   puts "iOS: #{ios == 0 ? 'PASSED'.green : 'FAILED'.red}"
