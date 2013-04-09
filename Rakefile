@@ -1,3 +1,4 @@
+# Reference from https://github.com/soffes/sskeychain
 class String
   def self.colorize(text, color_code)
     "\e[#{color_code}m#{text}\e[0m"
