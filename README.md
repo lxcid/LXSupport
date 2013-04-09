@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lxcid/LXSupport.png)](https://travis-ci.org/lxcid/LXSupport)
+
 LXSupport
 =========
 
