@@ -63,7 +63,7 @@
     };
     STAssertEqualObjects(theUser, theSimilarUser, @"The 2 users should be the same.");
     
-    STFail(@"Test array.");
+    // TODO: (khinboon@gmail.com) Test array.
 }
 
 @end
