@@ -33,6 +33,7 @@ task :test do
 
   puts "\n\n\n" if verbose
   puts "iOS: #{ios == 0 ? 'PASSED'.green : 'FAILED'.red}"
+  exit(ios)
 end
 
 task :default => :test
