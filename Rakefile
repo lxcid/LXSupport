@@ -15,8 +15,20 @@ end
 def test_scheme(scheme, verbose = false)
   command = "xcodebuild -project src/LXSupport/LXSupport.xcodeproj -target LXSupportTests -sdk iphonesimulator -configuration Debug TEST_AFTER_BUILD=YES 2>&1"
   IO.popen(command) do |io|
+    out = 0
     while line = io.gets do
-      puts line if verbose
+      if verbose
+        puts line
+      else
+        if line =~ /Started tests for architectures/
+          out = out + 1
+        elsif line =~ /Completed tests for architectures/
+          out = out - 1
+        end
+        
+        puts line if out > 0
+      end
+      
       if line == "** BUILD SUCCEEDED **\n"
         return 0
       elsif line == "** BUILD FAILED **\n"
