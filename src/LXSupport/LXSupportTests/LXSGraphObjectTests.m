@@ -28,6 +28,7 @@
 @implementation LXSGraphObjectTests
 
 - (void)testLXSUserGraphObject {
+    STFail(@"I am such a failure...");
     NSMutableDictionary<LXSUserGraphObject> *theUser = (NSMutableDictionary<LXSUserGraphObject> *)[LXSGraphObject graphObject];
     STAssertNil(theUser.name, @"The user's name should be nil.");
     STAssertNil(theUser.age, @"The user's age should be nil.");
