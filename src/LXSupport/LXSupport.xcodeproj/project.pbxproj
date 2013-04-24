@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		AB1DBE0E15D6CE3E005D4C0D /* LXSGraphObject.h in Headers */ = {isa = PBXBuildFile; fileRef = AB1DBE0C15D6CE3E005D4C0D /* LXSGraphObject.h */; };
 		AB1DBE0F15D6CE3E005D4C0D /* LXSGraphObject.m in Sources */ = {isa = PBXBuildFile; fileRef = AB1DBE0D15D6CE3E005D4C0D /* LXSGraphObject.m */; };
+		AB29B0771727FBB9000E846F /* SenTestingKit+LXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = AB29B0751727FBB9000E846F /* SenTestingKit+LXSupport.h */; };
+		AB29B07B1727FF87000E846F /* SenTestingKit+LXSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = AB29B07A1727FF87000E846F /* SenTestingKit+LXSupportTests.m */; };
 		AB2A7A6015B18A66008F7B4B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2A7A5F15B18A66008F7B4B /* Foundation.framework */; };
 		AB2A7A6E15B18A66008F7B4B /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2A7A6D15B18A66008F7B4B /* SenTestingKit.framework */; };
 		AB2A7A7115B18A66008F7B4B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB2A7A5F15B18A66008F7B4B /* Foundation.framework */; };
@@ -59,6 +61,9 @@
 /* Begin PBXFileReference section */
 		AB1DBE0C15D6CE3E005D4C0D /* LXSGraphObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSGraphObject.h; sourceTree = "<group>"; };
 		AB1DBE0D15D6CE3E005D4C0D /* LXSGraphObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSGraphObject.m; sourceTree = "<group>"; };
+		AB29B0751727FBB9000E846F /* SenTestingKit+LXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SenTestingKit+LXSupport.h"; sourceTree = "<group>"; };
+		AB29B0791727FF87000E846F /* SenTestingKit+LXSupportTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SenTestingKit+LXSupportTests.h"; sourceTree = "<group>"; };
+		AB29B07A1727FF87000E846F /* SenTestingKit+LXSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SenTestingKit+LXSupportTests.m"; sourceTree = "<group>"; };
 		AB2A7A5C15B18A66008F7B4B /* libLXSupport.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLXSupport.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB2A7A5F15B18A66008F7B4B /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		AB2A7A6315B18A66008F7B4B /* LXSupport-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "LXSupport-Prefix.pch"; sourceTree = "<group>"; };
@@ -247,6 +252,7 @@
 			children = (
 				AB82414715B7DF6C0095F844 /* CGGeometry+LXSupport.h */,
 				ABD1B0C915BA9019008F2641 /* Math+LXSupport.h */,
+				AB29B0751727FBB9000E846F /* SenTestingKit+LXSupport.h */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -258,6 +264,8 @@
 				AB82414D15B7E0BD0095F844 /* CGGeometry+LXSupportTests.m */,
 				ABD1B0CC15BA914D008F2641 /* Math+LXSupportTests.h */,
 				ABD1B0CD15BA914D008F2641 /* Math+LXSupportTests.m */,
+				AB29B0791727FF87000E846F /* SenTestingKit+LXSupportTests.h */,
+				AB29B07A1727FF87000E846F /* SenTestingKit+LXSupportTests.m */,
 			);
 			name = Extensions;
 			sourceTree = "<group>";
@@ -289,6 +297,7 @@
 				AB1DBE0E15D6CE3E005D4C0D /* LXSGraphObject.h in Headers */,
 				ABBCD0E215DA711E0051E313 /* LXSHelperOfNSData.h in Headers */,
 				ABBCD0E615DA72D90051E313 /* NSData+LXSupport.h in Headers */,
+				AB29B0771727FBB9000E846F /* SenTestingKit+LXSupport.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +424,7 @@
 				AB859AE315D8338F00097A7C /* LXSGraphObjectTests.m in Sources */,
 				ABBCD0EA15DA73580051E313 /* NSData+LXSupportTests.m in Sources */,
 				AB89F6A915E24F66004FB818 /* NSString+LXSupportTests.m in Sources */,
+				AB29B07B1727FF87000E846F /* SenTestingKit+LXSupportTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

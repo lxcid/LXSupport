@@ -28,7 +28,6 @@
 @implementation LXSGraphObjectTests
 
 - (void)testLXSUserGraphObject {
-    STFail(@"I am such a failure...");
     NSMutableDictionary<LXSUserGraphObject> *theUser = (NSMutableDictionary<LXSUserGraphObject> *)[LXSGraphObject graphObject];
     STAssertNil(theUser.name, @"The user's name should be nil.");
     STAssertNil(theUser.age, @"The user's age should be nil.");
@@ -64,7 +63,7 @@
     };
     STAssertEqualObjects(theUser, theSimilarUser, @"The 2 users should be the same.");
     
-    // TODO: (khinboon@gmail.com) Test array.
+    STFail(@"TODO: (khinboon@gmail.com) Test array.");
 }
 
 @end

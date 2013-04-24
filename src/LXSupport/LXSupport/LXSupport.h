@@ -20,3 +20,6 @@
 // UIKit
 #import "UIColor+LXSupport.h"
 #import "UIImage+LXSupport.h"
+
+// OCUnit
+#import "SenTestingKit+LXSupport.h"
