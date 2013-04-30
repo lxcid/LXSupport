@@ -12,7 +12,6 @@
 
 - (NSData *)dataByHmacSHA1WithKey:(NSData *)theKey;
 - (NSString *)stringByEncodeUsingBase64;
-- (NSData *)dataByDecodeUsingBase64;
 - (NSString *)hexadecimalString;
 
 @end

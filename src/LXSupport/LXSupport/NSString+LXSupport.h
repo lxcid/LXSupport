@@ -23,4 +23,6 @@
 
 - (BOOL)isEmpty;
 
+- (NSData *)dataByDecodeUsingBase64;
+
 @end

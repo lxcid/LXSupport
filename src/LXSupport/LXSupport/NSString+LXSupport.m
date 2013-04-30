@@ -7,6 +7,7 @@
 //
 
 #import "NSString+LXSupport.h"
+#import "LXSFCode.h"
 
 // Uses mattt one.
 static inline NSDictionary *LXSParametersFromQueryString(NSString *theQueryString) {
@@ -111,6 +112,10 @@ static inline NSDictionary *LXSParametersFromQueryString(NSString *theQueryStrin
 
 - (BOOL)isEmpty {
     return [self isEqualToString:@""];
+}
+
+- (NSData *)dataByDecodeUsingBase64 {
+    return [LXSFCode dataByDecodingWithBase64FromString:self];
 }
 
 @end

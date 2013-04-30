@@ -37,6 +37,10 @@
 		ABBCD0EA15DA73580051E313 /* NSData+LXSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBCD0E915DA73580051E313 /* NSData+LXSupportTests.m */; };
 		ABC4F34015C6454C002DE497 /* NSString+LXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = ABC4F33E15C6454C002DE497 /* NSString+LXSupport.h */; };
 		ABC4F34115C6454C002DE497 /* NSString+LXSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = ABC4F33F15C6454C002DE497 /* NSString+LXSupport.m */; };
+		ABCD0595172F965A00F1D8FC /* LXSFCode.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCD0592172F965A00F1D8FC /* LXSFCode.h */; };
+		ABCD0596172F965A00F1D8FC /* LXSFCode.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCD0593172F965A00F1D8FC /* LXSFCode.m */; };
+		ABCD0597172F965A00F1D8FC /* LXSFoundation.h in Headers */ = {isa = PBXBuildFile; fileRef = ABCD0594172F965A00F1D8FC /* LXSFoundation.h */; };
+		ABCD059C172F9F5000F1D8FC /* LXSFCodeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABCD059B172F9F5000F1D8FC /* LXSFCodeTests.m */; };
 		ABD1B0CA15BA9019008F2641 /* Math+LXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = ABD1B0C915BA9019008F2641 /* Math+LXSupport.h */; };
 		ABD1B0CE15BA914D008F2641 /* Math+LXSupportTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABD1B0CD15BA914D008F2641 /* Math+LXSupportTests.m */; };
 		ABEF2ED915B19B33003FA8E7 /* NSDictionary+LXSupport.h in Headers */ = {isa = PBXBuildFile; fileRef = ABEF2ED715B19B33003FA8E7 /* NSDictionary+LXSupport.h */; };
@@ -96,6 +100,12 @@
 		ABBCD0E915DA73580051E313 /* NSData+LXSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+LXSupportTests.m"; sourceTree = "<group>"; };
 		ABC4F33E15C6454C002DE497 /* NSString+LXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+LXSupport.h"; sourceTree = "<group>"; };
 		ABC4F33F15C6454C002DE497 /* NSString+LXSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+LXSupport.m"; sourceTree = "<group>"; };
+		ABCD0592172F965A00F1D8FC /* LXSFCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSFCode.h; sourceTree = "<group>"; };
+		ABCD0593172F965A00F1D8FC /* LXSFCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSFCode.m; sourceTree = "<group>"; };
+		ABCD0594172F965A00F1D8FC /* LXSFoundation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSFoundation.h; sourceTree = "<group>"; };
+		ABCD0598172F9AC000F1D8FC /* Credits.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Credits.md; path = ../../Credits.md; sourceTree = "<group>"; };
+		ABCD059A172F9F5000F1D8FC /* LXSFCodeTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LXSFCodeTests.h; sourceTree = "<group>"; };
+		ABCD059B172F9F5000F1D8FC /* LXSFCodeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LXSFCodeTests.m; sourceTree = "<group>"; };
 		ABD1B0C915BA9019008F2641 /* Math+LXSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Math+LXSupport.h"; sourceTree = "<group>"; };
 		ABD1B0CC15BA914D008F2641 /* Math+LXSupportTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Math+LXSupportTests.h"; sourceTree = "<group>"; };
 		ABD1B0CD15BA914D008F2641 /* Math+LXSupportTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Math+LXSupportTests.m"; sourceTree = "<group>"; };
@@ -169,6 +179,8 @@
 		AB2A7A6115B18A66008F7B4B /* LXSupport */ = {
 			isa = PBXGroup;
 			children = (
+				ABCD0598172F9AC000F1D8FC /* Credits.md */,
+				ABCD0591172F965A00F1D8FC /* LXSFoundation */,
 				ABBCD0DE15DA70F00051E313 /* Helpers */,
 				AB82414515B7DF320095F844 /* Extensions */,
 				AB2A7A8615B18A8F008F7B4B /* Categories */,
@@ -191,6 +203,7 @@
 		AB2A7A7515B18A66008F7B4B /* LXSupportTests */ = {
 			isa = PBXGroup;
 			children = (
+				ABCD0599172F9F5000F1D8FC /* LXSFoundationTests */,
 				AB82414B15B7E0A10095F844 /* Extensions */,
 				AB2A7A9815B18D8B008F7B4B /* Categories */,
 				AB2A7A7615B18A66008F7B4B /* Supporting Files */,
@@ -279,6 +292,26 @@
 			name = Helpers;
 			sourceTree = "<group>";
 		};
+		ABCD0591172F965A00F1D8FC /* LXSFoundation */ = {
+			isa = PBXGroup;
+			children = (
+				ABCD0592172F965A00F1D8FC /* LXSFCode.h */,
+				ABCD0593172F965A00F1D8FC /* LXSFCode.m */,
+				ABCD0594172F965A00F1D8FC /* LXSFoundation.h */,
+			);
+			name = LXSFoundation;
+			path = ../../LXSFoundation;
+			sourceTree = "<group>";
+		};
+		ABCD0599172F9F5000F1D8FC /* LXSFoundationTests */ = {
+			isa = PBXGroup;
+			children = (
+				ABCD059A172F9F5000F1D8FC /* LXSFCodeTests.h */,
+				ABCD059B172F9F5000F1D8FC /* LXSFCodeTests.m */,
+			);
+			path = LXSFoundationTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -298,6 +331,8 @@
 				ABBCD0E215DA711E0051E313 /* LXSHelperOfNSData.h in Headers */,
 				ABBCD0E615DA72D90051E313 /* NSData+LXSupport.h in Headers */,
 				AB29B0771727FBB9000E846F /* SenTestingKit+LXSupport.h in Headers */,
+				ABCD0595172F965A00F1D8FC /* LXSFCode.h in Headers */,
+				ABCD0597172F965A00F1D8FC /* LXSFoundation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +444,7 @@
 				AB1DBE0F15D6CE3E005D4C0D /* LXSGraphObject.m in Sources */,
 				ABBCD0E315DA711E0051E313 /* LXSHelperOfNSData.m in Sources */,
 				ABBCD0E715DA72D90051E313 /* NSData+LXSupport.m in Sources */,
+				ABCD0596172F965A00F1D8FC /* LXSFCode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +461,7 @@
 				ABBCD0EA15DA73580051E313 /* NSData+LXSupportTests.m in Sources */,
 				AB89F6A915E24F66004FB818 /* NSString+LXSupportTests.m in Sources */,
 				AB29B07B1727FF87000E846F /* SenTestingKit+LXSupportTests.m in Sources */,
+				ABCD059C172F9F5000F1D8FC /* LXSFCodeTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

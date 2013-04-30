@@ -8,6 +8,7 @@
 
 #import "NSData+LXSupport.h"
 #import "LXSHelperOfNSData.h"
+#import "LXSFCode.h"
 
 @implementation NSData (LXSupport)
 
@@ -16,15 +17,11 @@
 }
 
 - (NSString *)stringByEncodeUsingBase64 {
-    return [LXSHelperOfNSData stringByEncodeUsingBase64WithData:self];
-}
-
-- (NSData *)dataByDecodeUsingBase64 {
-    return [LXSHelperOfNSData dataByDecodeUsingBase64WithData:self];
+    return [LXSFCode stringByEncodingWithBase64FromData:self];
 }
 
 - (NSString *)hexadecimalString {
-    return [LXSHelperOfNSData hexadecimalStringFromData:self];
+    return [LXSFCode stringByEncodingWithHexadecimalFromData:self];
 }
 
 @end
