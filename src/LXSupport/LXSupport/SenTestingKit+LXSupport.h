@@ -18,7 +18,7 @@ typedef void (^LXSResumeBlock)(void);
 typedef void (^LXSBlockToExerciseRunLoop)(LXSResumeBlock resume);
 typedef void (^LXSBlockToCalculateElapsedTime)(void);
 
-uint64_t LXS_calculatesElapsedTimeInBlock(LXSBlockToCalculateElapsedTime block);
+static inline uint64_t LXS_calculatesElapsedTimeInBlock(LXSBlockToCalculateElapsedTime block);
 
 // Call resume() to stop the block from exercising the run loop and break out of the loop/block.
 // Failure to call resume() will cause the test to hang indefinitely.
@@ -42,7 +42,7 @@ void LXS_exercisesRunLoopInBlock(LXSBlockToExerciseRunLoop block, NSTimeInterval
 }
 
 // http://developer.apple.com/library/mac/#qa/qa1398/_index.html
-uint64_t LXS_calculatesElapsedTimeInBlock(LXSBlockToCalculateElapsedTime block) {
+static inline uint64_t LXS_calculatesElapsedTimeInBlock(LXSBlockToCalculateElapsedTime block) {
     uint64_t        start;
     uint64_t        end;
     uint64_t        elapsed;
