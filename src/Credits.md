@@ -1,6 +1,6 @@
- - _LXSupport Foundation_
-  - [Mattt Thompson](http://mattt.me)
-   * Base64 encoding implementation.
-   * Base64 decoding implementation is referenced from the encoding implementation.
-  - [Matt Gallenger](http://www.cocoawithlove.com)
-   * Base64 decoding table.
+- __LXSupport Foundation__
+ - [Mattt Thompson](http://mattt.me)
+  - Base64 encoding implementation.
+  - Base64 decoding implementation is referenced from the encoding implementation.
+ - [Matt Gallenger](http://www.cocoawithlove.com)
+  - Base64 decoding table.
