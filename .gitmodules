@@ -1,0 +1,3 @@
+[submodule "src/Vendors/xctool"]
+	path = src/Vendors/xctool
+	url = https://github.com/facebook/xctool.git
