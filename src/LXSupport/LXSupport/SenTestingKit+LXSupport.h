@@ -24,7 +24,7 @@ static inline uint64_t LXS_calculatesElapsedTimeInBlock(LXSBlockToCalculateElaps
 // Failure to call resume() will cause the test to hang indefinitely.
 // This is useful to testing asynchronous actions like AFNetworking operations. See https://gist.github.com/2215212
 // With some reference from https://github.com/icanzilb/MTTestSemaphore, I was able to simplify this method.
-void LXS_exercisesRunLoopInBlock(LXSBlockToExerciseRunLoop block, NSTimeInterval timeout) {
+static inline void LXS_exercisesRunLoopInBlock(LXSBlockToExerciseRunLoop block, NSTimeInterval timeout) {
     __block BOOL keepRunning = YES;
     block(^{ keepRunning = NO; });
     int64_t timeoutInNanoseconds = (int64_t)(LXS_ONE_SECOND_OF_NANOSECONDS * timeout);
